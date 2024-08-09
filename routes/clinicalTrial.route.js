@@ -5,12 +5,13 @@ import {
   updateClinicalTrial,
   deleteClinicalTrail,
 } from "../controllers/clinicalTrial.controller.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/", createNewClinicalTrial);
-router.get("/", getClinicalTrials);
-router.put("/:id", updateClinicalTrial);
-router.delete("/:id", deleteClinicalTrail);
+router.post("/", verifyToken, createNewClinicalTrial);
+router.get("/", verifyToken, getClinicalTrials);
+router.put("/:id", verifyToken, updateClinicalTrial);
+router.delete("/:id", verifyToken, deleteClinicalTrail);
 
 export default router;
