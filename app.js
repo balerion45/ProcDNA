@@ -1,4 +1,6 @@
 import express from 'express';
+import authRoute from "./routes/auth.route.js"
+import clinicalTrialRoute from './routes/clinicalTrial.route.js'
 
 const app = express();
 
